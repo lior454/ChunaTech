@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChunaTech - פתרונות מחשוב מתקדמים, גיימינג ותמיכה טכנית לעסקים ופרטיים בישראל">
+  <meta name="keywords" content="תיקון מחשבים, גיימינג, פתרונות רשת, IT לעסקים, ChunaTech">
+  <meta name="author" content="ChunaTech">
+  <title>ChunaTech - פתרונות מחשוב וגיימינג</title>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Assistant', sans-serif;
+    }
+    body {
+      direction: rtl;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background-color: #1f005e;
+      color: #ffffff;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #00d4ff;
+    }
+    .hero {
+      /* TODO: החלף את הלינק לתמונה שלך */
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x500?text=ChunaTech+Hero') center/cover;
+      color: #ffffff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #d1d1d1;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #00d4ff, #c400cad1);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    }
+    section {
+      padding: 60px 0;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #00d4ff;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+    .card i {
+      font-size: 40px;
+      color: #00d4ff;
+      margin-bottom: 15px;
+      transition: text-shadow 0.3s;
+    }
+    .card i:hover {
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    }
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .card p {
+      color: #d1d1d1;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .contact-info a {
+      color: #00d4ff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #39ff14;
+    }
+    footer {
+      background-color: #4a00e0;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    footer a {
+      color: #00d4ff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #39ff14;
+    }
+    /* הסתרת קטעים לפי בקשה */
+    #projects, #testimonials, #faq {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        background-color: #4a00e0;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        font-size: 24px;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+    }
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+            <img src="./logo.png" alt="ChunaTech" style="height: 60px;">
+          </div>
+        <i class="fas fa-bars menu-toggle" aria-label="פתח תפריט"></i>
+        <ul class="nav-links">
+          <li><a href="#home" class="active" aria-current="page">בית</a></li>
+          <li><a href="#services">שירותים</a></li>
+          <li><a href="#about">מי אני</a></li>
+          <li><a href="#contact">צור קשר</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>ברוכים הבאים ל-ChunaTech</h1>
+      <p>פתרונות מחשוב מתקדמים, גיימינג מקצועי ותמיכה טכנית ברמה הגבוהה ביותר – לעסקים ולפרטיים.</p>
+      <a href="#contact" class="btn">צור קשר עכשיו</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2>השירותים שלנו</h2>
+      <!-- אייקונים ממאגר FontAwesome: https://fontawesome.com (גרסה 6.4.0 דרך CDN) -->
+      <div class="services-grid">
+        <div class="card">
+          <i class="fas fa-tools"></i>
+          <h3>תיקון מחשבים</h3>
+          <p>אבחון מקצועי ותיקון מהיר של תקלות חומרה ותוכנה, כולל שדרוג רכיבים והתקנת מערכות הפעלה.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-desktop"></i>
+          <h3>הרכבת מחשבים</h3>
+          <p>בניית מחשבים מותאמים אישית לגיימינג, עבודה מקצועית או שימוש יומיומי, עם התמקדות בביצועים.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-network-wired"></i>
+          <h3>פתרונות רשת</h3>
+          <p>תכנון והקמת תשתיות רשת מאובטחות, כולל התקנת נתבים, חומת אש ואופטימיזציה של תקשורת.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-briefcase"></i>
+          <h3>תמיכה לעסקים</h3>
+          <p>שירותי IT מנוהלים, תחזוקה שוטפת, גיבויים והדרכות לעובדים לשיפור היעילות העסקית.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>ייעוץ טכנולוגי</h3>
+          <p>הכוונה מקצועית לבחירת פתרונות טכנולוגיים המותאמים לצרכי העסק או הפרט.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <h3>גיבוי בענן</h3>
+          <p>פתרונות גיבוי מאובטחים בענן לשמירה על נתונים חשובים בכל זמן.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-lock"></i>
+          <h3>אבטחת מידע</h3>
+          <p>הגנה על נתונים עסקיים ופרטיים מפני איומי סייבר עם כלים מתקדמים.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-camera"></i>
+          <h3>התקנת מצלמות אבטחה</h3>
+          <p>תכנון והתקנה של מערכות צילום מתקדמות לבית ולעסק.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- קטע מוסתר - ניתן להציג על ידי הסרת display: none ב-CSS -->
+  <section id="projects">
+    <div class="container">
+      <h2>פרויקטים נבחרים</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <i class="fas fa-server"></i>
+          <h3>מערכת מחשוב משרדית</h3>
+          <p>הקמת מערכת מחשוב לעסק בתל אביב, כולל 20 תחנות עבודה, שרת מקומי ופתרונות גיבוי בענן.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-gamepad"></i>
+          <h3>מערכת גיימינג Extreme</h3>
+          <p>בניית מחשב גיימינג עם מעבד i9, כרטיס מסך RTX 4090 וקירור מים מותאם אישית.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>תשתית רשת לעסק</h3>
+          <p>הקמת רשת מאובטחת לחברת סטארט-אפ, כולל VPN, חומת אש ותמיכה מרחוק.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- קטע מוסתר - ניתן להציג על ידי הסרת display: none ב-CSS -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>מה לקוחות אומרים עלינו</h2>
+      <div class="testimonials-grid">
+        <div class="card">
+          <i class="fas fa-quote-right"></i>
+ a       <p>"ChunaTech תיקנו את המחשב שלי תוך יום! שירות מקצועי ואדיב."</p>
+          <h3>יוסי כהן</h3>
+        </div>
+        <div class="card">
+          <i class="fas fa-quote-right"></i>
+          <p>"הרכיבו לי מחשב גיימינג מדהים שרץ כמו חלום."</p>
+          <h3>נועה לוי</h3>
+        </div>
+        <div class="card">
+          <i class="fas fa-quote-right"></i>
+          <p>"הקימו לנו רשת משרדית מאובטחת, הכל עובד מושלם."</p>
+          <h3>דני רוזן</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- קטע מוסתר - ניתן להציג על ידי הסרת display: none ב-CSS -->
+  <section id="faq">
+    <div class="container">
+      <h2>שאלות נפוצות</h2>
+      <div class="faq-item">
+        <h3>כמה זמן לוקח לתקן מחשב?</h3>
+        <p>רוב התיקונים מתבצעים תוך 24-48 שעות, תלוי במורכבות התקלה.</p>
+      </div>
+      <div class="faq-item">
+        <h3>האם אתם מספקים אחריות על השירותים?</h3>
+        <p>כן, אנו מציעים אחריות של 3 חודשים על כל תיקון או הרכבה.</p>
+      </div>
+      <div class="faq-item">
+        <h3>האם ניתן לקבל שירות מרחוק?</h3>
+        <p>בהחלט! אנו מציעים תמיכה מרחוק לתקלות תוכנה ורשת.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>מי אני?</h2>
+      <p>אני ליאור המייסד של ChunaTech, טכנאי מחשבים עם מעל 15 שנות ניסיון בתחום המחשוב והטכנולוגיה בישראל. אני מתמחה בתיקון ושדרוג מחשבים, בניית מערכות גיימינג מתקדמות, הקמת תשתיות רשת ושירותי IT לעסקים. השירות שלי הוא אישי, מקצועי ואמין, עם דגש על התאמה מלאה לצרכי הלקוח. אני כאן כדי לספק פתרונות טכנולוגיים שיהפכו את החיים שלך לקלים ויעילים יותר!</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>צור קשר</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> 053-833-3901</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:lior4543@gmail.com">lior4543@gmail.com</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/972538333901" target="_blank">שלח הודעה בוואטסאפ</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 ChunaTech. כל הזכויות שמורות.</p>
+      <p>
+       <a href="https://facebook.com/chunatech" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/chunatech" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/company/chunatech" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Set active link based on section in view
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop && !section.style.display.includes('none')) {
+          current = section.getAttribute('id');
+        }
+      });
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
